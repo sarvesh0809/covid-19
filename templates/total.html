@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Total Vaccine</title>
+</head>
+<style>
+    p{
+        padding: 6px;
+    }
+</style>
+<body>
+    <h1>COVID-19<span> Daily Report Of India</span></h1>
+
+    <p>
+        <center><a href="/home">Check Covid-19 State-Wise Data Of India</a></center>
+    </p>
+    <center><a href="/">Check Covid-19 Country-Wide Data</a></center>
+    <p>
+        <center><a href="/city">Check Covid-19 City-Wise Data Of India</a></center>
+    </p>
+    <div class="container">
+        <div class="box">
+            <span></span>
+            <div class="content">
+                <h3>{{TFV}}</h3>
+                <p>Total-Female-Vaccinated</p>
+
+            </div>
+        </div>
+
+        <div class="box">
+            <span></span>
+            <div class="content">
+                <h3>{{TMV}}</h3>
+                <p>Total-Male-Vaccinated</p>
+
+            </div>
+        </div>
+        <div class="box">
+            <span></span>
+            <div class="content">
+                <h3>{{SRT}}</h3>
+                <p>Sample-Reported-Today</p>
+
+            </div>
+        </div>
+        <div class="box">
+            <span></span>
+            <div class="content">
+                <h3>{{FDA}}</h3>
+                <p>First-Dose-Administered</p>
+
+            </div>
+        </div>
+        <div class="box">
+            <span></span>
+            <div class="content">
+                <h3>{{SDA}}</h3>
+                <p>Second-Dose-Administered</p>
+
+            </div>
+        </div>
+        <div class="box">
+            <span></span>
+            <div class="content">
+                <h3>{{TST}}</h3>
+                <p>Total-Samples-Tested</p>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
