@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse
 import requests
 import json
 
-import requests
+
 
 
 url = "https://corona-virus-world-and-india-data.p.rapidapi.com/api"
@@ -126,11 +126,11 @@ def city(request):
 def totals(request):
     url = "https://api.covid19india.org/data.json"
     response = requests.request("GET", url, headers=headers).json()
-    TFV = response["tested"][-1]['femaleindividualsvaccinated']
-    TMV = response["tested"][-1]['maleindividualsvaccinated']
-    SRT = response["tested"][-1]['samplereportedtoday']
-    FDA = response["tested"][-1]['firstdoseadministered']
-    TST = response["tested"][-1]['totalsamplestested']
-    SDA = response["tested"][-1]['seconddoseadministered']
-    contd ={'TFV':TFV,'TMV':TMV,'SRT':SRT,'FDA':FDA,'TST':TST,'SDA':SDA}
+    osf = f'''{int(response["tested"][-2]['over60years1stdose']):,}'''
+    oss = f'''{int(response["tested"][-2]['over60years2nddose']):,}'''
+    srt = f'''{int(response["tested"][-2]['samplereportedtoday']):,}'''
+    tst = f'''{int(response["tested"][-2]['totalsamplestested']):,}'''
+    tiv = f'''{int(response["tested"][-2]['totalindividualsvaccinated']):,}'''
+    drsa = f'''{int(response["tested"][-2]['dailyrtpcrsamplescollectedicmrapplication']):,}'''
+    contd ={'TFV':osf,'TMV':oss,'SRT':srt,'FDA':tiv,'TST':tst,'SDA':drsa}
     return render(request,'total.html',contd)
